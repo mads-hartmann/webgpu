@@ -1,15 +1,17 @@
 {
-	"name": "animations",
-
-	// Use 'dockerFile' if you need to create a Dockerfile.
+	"name": "WebGPU",
 	"image": "mcr.microsoft.com/devcontainers/base:latest",
-
-	"forwardPorts": [
-        5173
-    ],
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
+	"forwardPorts": [ 5173 ],
+	"remoteEnv": {
+		"CARGO_HOME": "/home/vscode/cargo"
+	},
 	"features": {
-		"ghcr.io/devcontainers-contrib/features/ts-node:1": {}	
+		"ghcr.io/devcontainers-contrib/features/ts-node:1": {},
+		"ghcr.io/devcontainers/features/rust:1": {},
+		"ghcr.io/lee-orr/rusty-dev-containers/cargo-binstall:0": {}
+	},
+	"postCreateCommand": {
+		"npm": "npm install",
+		"cargo": "cargo binstall cargo-wgsl"
 	}
 }
