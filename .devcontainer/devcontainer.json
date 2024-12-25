@@ -1,8 +1,8 @@
 {
 	"name": "WebGPU",
-	"image": "mcr.microsoft.com/devcontainers/base:latest",
+	"build": { "dockerfile": "Dockerfile" },
 	"forwardPorts": [ 5173 ],
-	"remoteEnv": {
+	"containerEnv": {
 		"CARGO_HOME": "/home/vscode/cargo"
 	},
 	"features": {
@@ -12,6 +12,6 @@
 	},
 	"postCreateCommand": {
 		"npm": "npm install",
-		"cargo": "cargo binstall cargo-wgsl"
+		"cargo": "cargo binstall cargo-wgsl -y"
 	}
 }
